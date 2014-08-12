@@ -1,0 +1,13 @@
+﻿HIREOLOGY TEST – Question 1
+
+How can Memcache improve a site’s performance? Include a description about how data is stored and retrieved in a multi-node configuration.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Memcache provides a performance benefit to sites by allowing calls to query a faster, in memory store for commonly needed data first before falling back to slower api calls or database queries. Memcache, being in-memory as opposed to on disk, can be much faster to query than a database (even with things such as MySQL's query caching, which has some limitations that Memcache does not have). Computing the results of complex actions that do not often need to be run again and storing them in Memcache results in significantly better performance as well. 
+
+Memcache is a distributed client server-system functioning as a large hash table. Clients expose a simple API allowing for read/write functionality. Clients maintain a list of all servers in the 'farm' and use a hashing algorithm on each key to determine which server to write/read from. Multiple clients using the same hashing algorithm and the same server list will have access to the same data. Data does not need to be duplicated between servers.
+
+Data can be lost by a server restart, the expiration of a key (a particular key can be set to expire after a given interval of time regardless of space considerations), the deleting of a key via an API call, or by memcache itself as space begins to run out and it removes keys, oldest first, to make room for new data. Because of this, applications must treat the data they store in Memcache as transient.
+
+
