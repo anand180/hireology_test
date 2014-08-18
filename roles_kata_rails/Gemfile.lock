@@ -21,6 +21,8 @@ GEM
       activemodel (= 4.1.4)
       activesupport (= 4.1.4)
       arel (~> 5.0.0)
+    activerecord-nulldb-adapter (0.3.1)
+      activerecord (>= 2.0.0)
     activesupport (4.1.4)
       i18n (~> 0.6, >= 0.6.9)
       json (~> 1.7, >= 1.7.7)
@@ -114,6 +116,10 @@ GEM
       rspec-core (~> 3.0.0)
       rspec-expectations (~> 3.0.0)
       rspec-mocks (~> 3.0.0)
+    rspec-activemodel-mocks (1.0.1)
+      activemodel (>= 3.0)
+      activesupport (>= 3.0)
+      rspec-mocks (>= 2.99, < 4.0)
     rspec-core (3.0.4)
       rspec-support (~> 3.0.0)
     rspec-expectations (3.0.4)
@@ -139,6 +145,12 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    shoulda (3.5.0)
+      shoulda-context (~> 1.0, >= 1.0.1)
+      shoulda-matchers (>= 1.4.1, < 3.0)
+    shoulda-context (1.2.1)
+    shoulda-matchers (2.6.2)
+      activesupport (>= 3.0.0)
     slop (3.6.0)
     spring (1.1.3)
     spring-commands-rspec (1.0.2)
@@ -172,6 +184,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-nulldb-adapter
   coffee-rails (~> 4.0.0)
   debugger
   guard-rspec
@@ -179,9 +192,11 @@ DEPENDENCIES
   jquery-rails
   rails (= 4.1.4)
   rb-fsevent
+  rspec-activemodel-mocks
   rspec-rails
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
+  shoulda
   spring
   spring-commands-rspec
   sqlite3
